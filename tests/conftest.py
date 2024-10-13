@@ -24,6 +24,16 @@ def second_product():
     )
 
 
+@pytest.fixture()
+def third_product():
+    return Product(
+        name="Iphone 16",
+        description="128GB, white",
+        price=250000.0,
+        quantity=2,
+    )
+
+
 @pytest.fixture(scope="function")
 def category1():
 
@@ -34,8 +44,14 @@ def category1():
             " но и получение дополнительных функций для удобства жизни"
         ),
         products=[
-            {"Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5},
-            {"Iphone 15", "512GB, Gray space", 210000.0, 8},
+            Product("Samsung Galaxy S23 Ultra",
+                    "256GB, Серый цвет, 200MP камера",
+                    180000.0,
+                    5),
+            Product("Iphone 15",
+                    "512GB," " Gray space",
+                    210000.0,
+                    8),
         ],
     )
 
@@ -49,6 +65,6 @@ def category2():
             "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником"
         ),
         products=[
-            {'55" QLED 4K', "Фоновая подсветка", 123000.0, 7},
+            Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7),
         ],
     )
