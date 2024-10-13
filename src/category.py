@@ -15,6 +15,12 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
+    def __str__(self):
+        total_quantity = 0
+        for product in self.__products:
+            total_quantity += product.quantity
+        return f"{self.name}, количество продуктов: {total_quantity} шт."
+
     def add_product(self, product):
         if isinstance(product, Product):
             self.__products.append(product)
@@ -26,5 +32,5 @@ class Category:
     def products(self):
         products_str = ""
         for p in self.__products:
-            products_str += f"{p.name}, {p.price} руб. Остаток: {p.quantity} шт.\n"
+            products_str += f"{str(p)}"
         return products_str

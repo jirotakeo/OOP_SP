@@ -68,3 +68,18 @@ def category2():
             Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7),
         ],
     )
+
+
+@pytest.fixture
+def sum1():
+    return 2580000.0
+
+
+@pytest.fixture
+def sum2():
+    return 1400000.0
+
+
+@pytest.fixture
+def sum3():
+    return 2180000.0
