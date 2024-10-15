@@ -31,3 +31,8 @@ def test_category_init(category1, category2):
     assert category2.description == (
         "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником"
     )
+
+
+def test_category_str(category1):
+    assert str(category1) == "Смартфоны, количество продуктов: 13 шт."
+    assert category1.__str__() == "Смартфоны, количество продуктов: 13 шт."

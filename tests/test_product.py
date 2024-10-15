@@ -37,3 +37,15 @@ def test_new_price(capsys, third_product):
 
     third_product.price = 260000.0
     assert third_product.price == 260000.0
+
+
+def test_product_str(first_product, second_product, third_product):
+    assert first_product.__str__() == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.\n"
+    assert str(second_product) == "Iphone 15, 210000.0 руб. Остаток: 8 шт.\n"
+    assert str(third_product) == "Iphone 16, 250000.0 руб. Остаток: 2 шт.\n"
+
+
+def test_magic_add(sum1, sum2, sum3, first_product, second_product, third_product):
+    assert first_product + second_product == sum1
+    assert first_product + third_product == sum2
+    assert second_product + third_product == sum3
