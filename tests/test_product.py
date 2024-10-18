@@ -1,3 +1,5 @@
+import pytest
+
 from src.product import Product
 
 
@@ -49,3 +51,12 @@ def test_magic_add(sum1, sum2, sum3, first_product, second_product, third_produc
     assert first_product + second_product == sum1
     assert first_product + third_product == sum2
     assert second_product + third_product == sum3
+
+
+def test_add_error(first_product, fourth_product):
+    with pytest.raises(TypeError):
+        assert first_product + fourth_product
+
+
+def test_add_new(fifth_product, sixth_product):
+    assert fifth_product + sixth_product == 914000.0
