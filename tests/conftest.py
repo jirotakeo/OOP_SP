@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.lawngrass import LawnGrass
 from src.product import Product
 
 
@@ -32,6 +33,12 @@ def third_product():
         price=250000.0,
         quantity=2,
     )
+
+
+@pytest.fixture
+def fourth_product():
+    grass = LawnGrass("Газонная трава", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+    return grass
 
 
 @pytest.fixture(scope="function")
