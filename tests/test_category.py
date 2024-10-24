@@ -1,5 +1,7 @@
 import pytest
 
+from src.category import Category
+
 
 def test_add_product(category1, third_product):
     assert category1.product_count == 2
@@ -44,3 +46,15 @@ def test_category_str(category1):
 def test_add_error(category1):
     with pytest.raises(TypeError):
         assert category1.add_product("Not a product")
+
+
+def test_middle_price(first_product, second_product, third_product):
+    category = Category("Смартфоны", "Категория смартфонов", [first_product, second_product, third_product])
+    result = category.middle_price()
+    assert result == 205333.33
+
+
+def test_middle_price_no_products():
+    category_empty = Category("Пустая категория", "Категория без продуктов", [])
+    result = category_empty.middle_price()
+    assert result == 0

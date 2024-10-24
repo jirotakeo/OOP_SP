@@ -60,3 +60,9 @@ def test_add_error(first_product, fourth_product):
 
 def test_add_new(fifth_product, sixth_product):
     assert fifth_product + sixth_product == 914000.0
+
+
+def test_zero_quantity(capsys):
+    with pytest.raises(ValueError) as e:
+        Product("Бракованный товар", "Неверное количество", 1000.0, 0)
+    assert str(e.value) == "Товар с нулевым количеством не может быть добавлен"
